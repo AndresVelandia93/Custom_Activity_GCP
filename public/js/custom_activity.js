@@ -86,7 +86,7 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema']; 
-        fillPlaceholderList(schema);    
+        //fillPlaceholderList(schema);    
     }
 
     
