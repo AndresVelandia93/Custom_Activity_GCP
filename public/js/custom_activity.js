@@ -8,6 +8,8 @@ define(['postmonger'], (Postmonger) => {
         { "label": "Step 2", "key": "step2" }
     ];
 
+    var currentStep = steps[0].key;
+
     const inArguments = [];
 
 
@@ -67,9 +69,11 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onClickedNext() {
-        showStep(currentStep.key);
-        connection.trigger('nextStep');
-        
+        if (currentStep.key === 'step2' && steps[1].active === false) {
+            save();
+        } else {
+            connection.trigger('nextStep');
+        }  
     }
 
 
@@ -80,6 +84,8 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onGotoStep(step) {
+        showStep(step);
+        connection.trigger('ready');
     }
 
 
