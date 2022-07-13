@@ -68,7 +68,7 @@ define(['postmonger'], (Postmonger) => {
     }
 
 
-    function onClickedNext() {
+    function onClickedNext(step) {
         if (step.key == 'step2') {
             save();
         } else {
