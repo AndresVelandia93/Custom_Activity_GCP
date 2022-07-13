@@ -66,8 +66,10 @@ define(['postmonger'], (Postmonger) => {
     }
 
 
-    function onClickedNext() {
+    function onClickedNext(step) {
+        showStep(step);
         connection.trigger('nextStep');
+        
     }
 
 
@@ -154,8 +156,6 @@ define(['postmonger'], (Postmonger) => {
             });
         }
 
-        
-
         switch(currentStep.key) {
 
             case 'step1':
@@ -181,32 +181,6 @@ define(['postmonger'], (Postmonger) => {
             connection.trigger('updateButton', {
                 button: 'back',
                 visible: false
-            });
-            break;
-
-            case 'step3':
-            $(setup).show();
-            connection.trigger('updateButton', {
-                button: 'next',
-                text: 'Next',
-                enabled: true
-            });
-            connection.trigger('updateButton', {
-                button: 'back',
-                visible: false
-            });
-            break;
-
-            case 'step4':
-            $(summary).show();
-            connection.trigger('updateButton', {
-                button: 'back',
-                visible: true
-            });
-            connection.trigger('updateButton', {
-                button: 'next',
-                text: 'Done',
-                visible: true
             });
             break;
         }
