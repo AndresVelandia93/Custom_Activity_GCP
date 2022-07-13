@@ -156,11 +156,11 @@ define(['postmonger'], (Postmonger) => {
                 visible: false
             });
         }
-        
+
         switch(step.key) {
 
             case 'step1':
-            $(setup).show();
+            $('#step1').show();
             connection.trigger('updateButton', {
                 button: 'next',
                 text: 'Next',
@@ -173,7 +173,7 @@ define(['postmonger'], (Postmonger) => {
             break;
 
             case 'step2':
-            $(summary).show();
+            $('#step2').show();
             connection.trigger('updateButton', {
                 button: 'back',
                 visible: true
