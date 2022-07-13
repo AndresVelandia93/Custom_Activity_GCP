@@ -156,7 +156,7 @@ define(['postmonger'], (Postmonger) => {
                 visible: false
             });
         }
-
+        console.log('Paso: ' + step.key);
         switch(step.key) {
 
             case 'step1':
