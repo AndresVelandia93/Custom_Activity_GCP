@@ -79,8 +79,7 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onGotoStep(step) {
-        showStep(step);
-        connection.trigger('ready');
+        
     }
 
 
