@@ -5,9 +5,7 @@ define(['postmonger'], (Postmonger) => {
 
     const steps = [
         { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" },
-        { "label": "Step 3", "key": "step3" },
-        { "label": "Step 4", "key": "step4" }
+        { "label": "Step 2", "key": "step2" }
     ];
 
     const inArguments = [];
@@ -69,6 +67,7 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onClickedNext() {
+        connection.trigger('nextStep');
     }
 
 
@@ -213,10 +212,6 @@ define(['postmonger'], (Postmonger) => {
         }
         
     }
-
-
-   
-
 });
 
 
