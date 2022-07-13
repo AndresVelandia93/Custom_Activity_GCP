@@ -7,7 +7,7 @@
     "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jorge Guaqueta",
+  "author": "Andres Velandia",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -20,7 +20,7 @@
   "options": {
     "salesforce": {
       "marketingCloud": {
-        "jwtSecret": "YOUR_JWT_FROM_INSTALLED_PACKAGE"
+        "jwtSecret": "l536s8dSR-qMBDkIl0okoWYnhmsY5raWAPhsqXr-wDRAX1n4ePOQBUapR5q1IH2EGhsRYLSBKnDd0Zgq5k5380pNw4Onizcf44-VhkIQOPs-xiu23DTLE89xTCdzaEmEEINT4aKNbWOfdRh-zWYLd91bisPY-JLXguW5s9JiFfmCFYg6zZhDi8TzXq3bzAWm81ZSSFnThKja77d9jI5-N_L-pBp_mpLbXMCl5HMb7JGSahZcCdhZaim8yPoZeg2"
       }
     }
   }

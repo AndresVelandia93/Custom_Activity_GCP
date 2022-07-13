@@ -1,15 +1,15 @@
 {
 	"workflowApiVersion": "1.1",
 	"metaData": {
-		"icon": "img/icon.png",
+		"icon": "img/GCP_Image.png",
         "category": "custom",
         "configOnDrop": false
 	},
 	"type": "REST",
 	"lang": {
 		"es-CO": {
-			"name": "Plantilla de Custom Activity",
-			"description": "Plantilla de custom activity"
+			"name": "Custom Activity GCP",
+			"description": "Custom Activity GCP"
 		}
 	},
 	"arguments": {
@@ -51,9 +51,7 @@
 	},
 	"wizardSteps": [
         { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" },
-        { "label": "Step 3", "key": "step3" },
-        { "label": "Step 4", "key": "step4" }
+        { "label": "Step 2", "key": "step2" }
 	],
 	"userInterfaces": {
 		"configModal": {
