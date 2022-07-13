@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="icon" type="image/png" href="./img/icon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./img/GCP_Image.png" sizes="32x32">
     <script data-main="js/main" src="js/require.js"></script>
 
 </head>
@@ -21,7 +21,44 @@
 <body>
 
     <div class="container-fluid" id="step1">
-        asdsd
+        <div id="warning" class="" style="display: none;">
+            Existe un Error
+        </div>
+        <div id="main-form" class="" style="display: block;"></div>
+            <p><small id="version"></small></p>
+            <h1>Create a notification PORTAL WEB</h1>
+            <p>This Activity creates a notification.</p>
+            <table>
+                <tr>
+                    <td><label>ID Corporativo</label></td>
+                    <td><input type="text" id="id_corp"/></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input id="email"></input></td>
+                </tr>
+                <tr>
+                    <td><label>Event Date</label></td>
+                    <td><input type="text" id="event_date"/></td>
+                </tr>
+                <tr>
+                    <td><label>Batch Id</label></td>
+                    <td><input type="text" id="batchid"/></td>
+                </tr>
+                <tr>
+                    <td><label>Job Id</label></td>
+                    <td><input type="text" id="jobid"/></td>
+                </tr>
+                <tr>
+                    <td><label>Account Id</label></td>
+                    <td><input type="text" id="accountid"/></td>
+                </tr>
+                <tr>
+                    <td><label>Package Id</label></td>
+                    <select id="packageid" class="slds-select"></select>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="container-fluid" id="step2">
     </div>
