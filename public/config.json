@@ -25,7 +25,7 @@
 		}
 	},
 	"configurationArguments": {
-		"applicationExtensionKey": "YOUR APPLICATION EXTENSION KEY FROM INSTALLED PACKAGE INTO MARKETING CLOUD",
+		"applicationExtensionKey": "6ea96cfd-5efd-450c-b3f3-0ddb1dee680c",
 		"save": {
 			"url": "https://YOUR_APP_ENDPOINT/save",
 			"verb": "POST",

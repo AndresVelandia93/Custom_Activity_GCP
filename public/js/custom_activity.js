@@ -69,7 +69,11 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onClickedNext() {
-        connection.trigger('nextStep');  
+        if (step.key == 'step2') {
+            save();
+        } else {
+            connection.trigger('nextStep');
+        }
     }
 
 
@@ -156,7 +160,7 @@ define(['postmonger'], (Postmonger) => {
                 visible: false
             });
         }
-        console.log('Paso: ' + step.key);
+
         switch(step.key) {
 
             case 'step1':
