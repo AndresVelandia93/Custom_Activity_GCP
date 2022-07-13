@@ -79,7 +79,9 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onGotoStep(step) {
-        
+        console.log('Step: ' + step);
+        showStep(step);
+        connection.trigger('ready');
     }
 
 
@@ -155,7 +157,7 @@ define(['postmonger'], (Postmonger) => {
                 visible: false
             });
         }
-
+        console.log('Currente: ' + currentStep.key);
         switch(currentStep.key) {
 
             case 'step1':
