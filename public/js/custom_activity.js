@@ -66,8 +66,8 @@ define(['postmonger'], (Postmonger) => {
     }
 
 
-    function onClickedNext(step) {
-        showStep(step);
+    function onClickedNext() {
+        showStep(currentStep.key);
         connection.trigger('nextStep');
         
     }
