@@ -68,8 +68,8 @@ define(['postmonger'], (Postmonger) => {
     }
 
 
-    function onClickedNext(step) {
-        if (step.key == 'step2') {
+    function onClickedNext() {
+        if (currentStep.key === 'step2') {
             save();
         } else {
             connection.trigger('nextStep');
@@ -146,10 +146,12 @@ define(['postmonger'], (Postmonger) => {
 
 
     function showStep(step) {
+        currentStep = step;
+
         $('.step').hide();
 
         if (step == null) {
-            $(setup).show();
+            $('#step1').show();
             connection.trigger('updateButton', {
                 button: 'next',
                 text: 'Next',
