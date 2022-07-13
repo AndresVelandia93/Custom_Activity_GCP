@@ -69,18 +69,13 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onClickedNext() {
-        if (currentStep.key === 'step2' && steps[1].active === false) {
-            save();
-        } else {
-            connection.trigger('nextStep');
-        }  
+        connection.trigger('nextStep');  
     }
 
 
     function onClickedBack() {
         connection.trigger('prevStep');
     }
-
 
 
     function onGotoStep(step) {
@@ -178,17 +173,17 @@ define(['postmonger'], (Postmonger) => {
             break;
 
             case 'step2':
-            $(setup).show();
-            connection.trigger('updateButton', {
-                button: 'next',
-                text: 'Next',
-                enabled: true
-            });
+            $(summary).show();
             connection.trigger('updateButton', {
                 button: 'back',
-                visible: false
+                visible: true
             });
-            break;
+            connection.trigger('updateButton', {
+                button: 'next',
+                text: 'Done',
+                visible: true
+            });
+            break;    
         }
         
     }
