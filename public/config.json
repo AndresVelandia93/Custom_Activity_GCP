@@ -16,7 +16,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://YOUR_APP_ENDPOINT/execute",
+			"url": "https://custom-activity-v4.herokuapp.com/execute",
 			"verb": "POST",
 			"format": "json",
 			"header": "",
