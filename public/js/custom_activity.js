@@ -89,7 +89,8 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onRequestSchema(data) {
-        schema = data['schema']; 
+        schema = data['schema'];
+        console.log('*** Schema ***', JSON.stringify(data['schema']));
         //fillPlaceholderList(schema);    
     }
 
