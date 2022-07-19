@@ -90,7 +90,7 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        var id_corp = document.getElementById('id_corp');
+        
         var email = document.getElementById('email');
         var event_date = document.getElementById('event_date');
         var batchid = document.getElementById('batchid');
@@ -104,7 +104,7 @@ define(['postmonger'], (Postmonger) => {
             option.value = element.key;
             option.text = element.name;
             
-            id_corp.append(option);
+            loadSelect_IdCorp(option);
             email.append(option);
             event_date.append(option);
             batchid.append(option);
@@ -151,7 +151,10 @@ define(['postmonger'], (Postmonger) => {
         payload['arguments'].execute.inArguments = inArguments;
     }
 
-
+    function loadSelect_IdCorp(option){
+        var id_corp = document.getElementById('id_corp');
+        id_corp.append(option);
+    }
 
     function extractFieldName(field) {
         var index = field.key.lastIndexOf('.');
