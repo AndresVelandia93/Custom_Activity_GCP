@@ -91,6 +91,9 @@ define(['postmonger'], (Postmonger) => {
     function onRequestSchema(data) {
         schema = data['schema'];
         console.log('*** Schema ***', JSON.stringify(data['schema']));
+        schema.forEach(element => {
+            console.log('Key: ' + element.key + ', Name: ' + element.name);
+        });
         //fillPlaceholderList(schema);    
     }
 
