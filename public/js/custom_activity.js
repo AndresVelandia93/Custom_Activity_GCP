@@ -102,7 +102,7 @@ define(['postmonger'], (Postmonger) => {
         schema.forEach(element => {
             var option = document.createElement("option");
             option.value = element.key;
-            option.text = element.name.replace('Contact:', '');
+            option.text = element.name;
             
             id_corp.appendChild(option);
             email.appendChild(option);
