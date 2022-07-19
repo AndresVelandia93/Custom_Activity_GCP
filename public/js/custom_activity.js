@@ -104,13 +104,13 @@ define(['postmonger'], (Postmonger) => {
             option.value = element.key;
             option.text = element.name.replace('Contact:', '');
             
-            id_corp.appendChild(option);
+            /*id_corp.appendChild(option);
             email.appendChild(option);
             event_date.appendChild(option);
             batchid.appendChild(option);
             jobid.appendChild(option);
             accountid.appendChild(option);
-            packageid.appendChild(option);
+            packageid.appendChild(option);*/
 
             console.log('Key: ' + element.key + ', Name: ' + element.name);
         });
