@@ -48,6 +48,7 @@ define(['postmonger'], (Postmonger) => {
     connection.on('gotoStep', onGotoStep);
 
 
+    connection.on('requestedInteraction', onRequestedInteraction);
 
     //This function executes on render the page
     function onRender() {
@@ -56,6 +57,7 @@ define(['postmonger'], (Postmonger) => {
         connection.trigger('requestTriggerEventDefinition');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
+        connection.trigger('requestedInteraction');
     }
 
 
@@ -90,7 +92,12 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        
+        //fillPlaceholderList(schema);    
+    }
+
+    function onRequestedInteraction(data) {
+        schema = data['schema'];
+        var id_corp = document.getElementById('id_corp');
         var email = document.getElementById('email');
         var event_date = document.getElementById('event_date');
         var batchid = document.getElementById('batchid');
@@ -104,7 +111,7 @@ define(['postmonger'], (Postmonger) => {
             option.value = element.key;
             option.text = element.name;
             
-            loadSelect_IdCorp(option);
+            id_corp.append(option);
             email.append(option);
             event_date.append(option);
             batchid.append(option);
@@ -116,7 +123,7 @@ define(['postmonger'], (Postmonger) => {
         });
         //fillPlaceholderList(schema);    
     }
-
+    
     
     function onRequestEventDefinition(eventDefinition) {
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
@@ -151,10 +158,7 @@ define(['postmonger'], (Postmonger) => {
         payload['arguments'].execute.inArguments = inArguments;
     }
 
-    function loadSelect_IdCorp(option){
-        var id_corp = document.getElementById('id_corp');
-        id_corp.append(option);
-    }
+
 
     function extractFieldName(field) {
         var index = field.key.lastIndexOf('.');
