@@ -48,7 +48,6 @@ define(['postmonger'], (Postmonger) => {
     connection.on('gotoStep', onGotoStep);
 
 
-    connection.on('requestedInteraction', onRequestedInteraction);
 
     //This function executes on render the page
     function onRender() {
@@ -57,7 +56,6 @@ define(['postmonger'], (Postmonger) => {
         connection.trigger('requestTriggerEventDefinition');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-        connection.trigger('requestedInteraction');
     }
 
 
@@ -92,18 +90,6 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        //fillPlaceholderList(schema);    
-    }
-
-    function onRequestedInteraction(data) {
-        schema = data['schema'];
-        var id_corp = document.getElementById('id_corp');
-        var email = document.getElementById('email');
-        var event_date = document.getElementById('event_date');
-        var batchid = document.getElementById('batchid');
-        var jobid = document.getElementById('jobid');
-        var accountid = document.getElementById('accountid');
-        var packageid = document.getElementById('packageid');
 
         console.log('*** Schema ***', JSON.stringify(data['schema']));
         schema.forEach(element => {
@@ -111,19 +97,17 @@ define(['postmonger'], (Postmonger) => {
             option.value = element.key;
             option.text = element.name;
             
-            id_corp.append(option);
-            email.append(option);
-            event_date.append(option);
-            batchid.append(option);
-            jobid.append(option);
-            accountid.append(option);
-            packageid.append(option);
-
-            console.log('Key: ' + element.key + ', Name: ' + element.name);
+            $('#id_corp').append($('<option>', {value: element.key, text: element.name}));
+            $('#email').append($('<option>', {value: element.key, text: element.name}));
+            $('#event_date').append($('<option>', {value: element.key, text: element.name}));
+            $('#batchid').append($('<option>', {value: element.key, text: element.name}));
+            $('#jobid').append($('<option>', {value: element.key, text: element.name}));
+            $('#accountid').append($('<option>', {value: element.key, text: element.name}));
+            $('#packageid').append($('<option>', {value: element.key, text: element.name}));
         });
         //fillPlaceholderList(schema);    
     }
-    
+
     
     function onRequestEventDefinition(eventDefinition) {
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
