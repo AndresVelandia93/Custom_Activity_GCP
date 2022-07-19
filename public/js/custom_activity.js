@@ -110,7 +110,7 @@ define(['postmonger'], (Postmonger) => {
             batchid.appendChild(option);
             jobid.appendChild(option);
             accountid.appendChild(option);
-            packageid.appendChild(option);
+            //packageid.appendChild(option);
 
             console.log('Key: ' + element.key + ', Name: ' + element.name);
         });
