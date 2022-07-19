@@ -90,27 +90,12 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        /*var id_corp = document.getElementById('id_corp');
-        var email = document.getElementById('email');
-        var event_date = document.getElementById('event_date');
-        var batchid = document.getElementById('batchid');
-        var jobid = document.getElementById('jobid');
-        var accountid = document.getElementById('accountid');
-        var packageid = document.getElementById('packageid');*/
+
 
         console.log('*** Schema ***', JSON.stringify(data['schema']));
         schema.forEach(element => {
-            /*var option = document.createElement("option");
-            option.value = element.key;
-            option.text = element.name.replace('Contact:', '');
+
             
-            id_corp.appendChild(option);
-            email.appendChild(option);
-            event_date.appendChild(option);
-            batchid.appendChild(option);
-            jobid.appendChild(option);
-            accountid.appendChild(option);
-            packageid.appendChild(option);*/
 
             console.log('Key: ' + element.key + ', Name: ' + element.name);
         });
