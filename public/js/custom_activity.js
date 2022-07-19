@@ -100,11 +100,11 @@ define(['postmonger'], (Postmonger) => {
 
         console.log('*** Schema ***', JSON.stringify(data['schema']));
         schema.forEach(element => {
-            var option = document.createElement("option");
+            /*var option = document.createElement("option");
             option.value = element.key;
             option.text = element.name.replace('Contact:', '');
             
-            /*id_corp.appendChild(option);
+            id_corp.appendChild(option);
             email.appendChild(option);
             event_date.appendChild(option);
             batchid.appendChild(option);
