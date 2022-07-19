@@ -90,8 +90,8 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-
-        console.log('*** Schema ***', JSON.stringify(data['schema']));
+        //console.log('*** Schema ***', JSON.stringify(data['schema']));
+        
         schema.forEach(element => {
             var option = document.createElement("option");
             option.value = element.key;
