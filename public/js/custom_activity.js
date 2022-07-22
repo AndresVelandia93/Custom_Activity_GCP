@@ -65,8 +65,8 @@ define(['postmonger'], (Postmonger) => {
         console.log("Datos: ", JSON.stringify(data));
         if(data) {
             payload = data;
-            var setobjectID = payload["arguments"].execute.inArguments[0].objectID;
-            $("#id_corp").val(setobjectID);
+            //var setobjectID = payload["arguments"].execute.inArguments[0].objectID;
+            //$("#id_corp").val(setobjectID);
         }
     }
 
