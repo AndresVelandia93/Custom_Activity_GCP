@@ -8,7 +8,11 @@
 	"type": "REST",
 	"lang": {
 		"es-CO": {
-			"name": "Custom Activity GCP",
+			"name": "AP GCP",
+			"description": "Actividad Personalizada GCP"
+		},
+		"en-US": {
+			"name": "CA GCP",
 			"description": "Custom Activity GCP"
 		}
 	},
