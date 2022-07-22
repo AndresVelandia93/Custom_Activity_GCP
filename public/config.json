@@ -3,7 +3,7 @@
 	"metaData": {
 		"icon": "img/GCP_Image.png",
         "category": "custom",
-        "configOnDrop": false
+        "configOnDrop": true
 	},
 	"type": "REST",
 	"lang": {

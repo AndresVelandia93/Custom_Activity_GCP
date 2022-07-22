@@ -63,7 +63,6 @@ define(['postmonger'], (Postmonger) => {
     
     function initialize(data) {
         console.log("Datos: ", JSON.stringify(data));
-        console.log("Datos: ", JSON.stringify(schema));
         
         if(data) {
             payload = data;
