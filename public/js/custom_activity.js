@@ -63,6 +63,8 @@ define(['postmonger'], (Postmonger) => {
     
     function initialize(data) {
         console.log("Datos: ", JSON.stringify(data));
+        console.log("Datos: ", JSON.stringify(schema));
+        
         if(data) {
             payload = data;
             //var setobjectID = payload["arguments"].execute.inArguments[0].objectID;
