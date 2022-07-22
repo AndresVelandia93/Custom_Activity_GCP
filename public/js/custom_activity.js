@@ -65,6 +65,8 @@ define(['postmonger'], (Postmonger) => {
         console.log("Datos: ", JSON.stringify(data));
         if(data) {
             payload = data;
+            var setobjectID = payload["arguments"].execute.inArguments[0].objectID;
+            $("#id_corp").val(setobjectID);
         }
     }
 
@@ -130,7 +132,7 @@ define(['postmonger'], (Postmonger) => {
                 var field = schema[i];
                 if (isEventDataSourceField(field)) {
                     var fieldName = extractFieldName(field);
-                    var prefixedFieldName = 'YOUR_OWN_PREFIX_FOR_MASKING' + fieldName;
+                    var prefixedFieldName = 'DataGCP_' + fieldName;
                     saveFieldToInArguments(field, prefixedFieldName, inArguments);
                     
                 }
