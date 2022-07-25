@@ -25,37 +25,40 @@
 			"format": "json",
 			"header": "",
 			"body": "",
-			"useJwt": true 
+			"useJwt": true,
+			"customerKey": "2022 falabella custom 2022"
 		}
 	},
 	"configurationArguments": {
-		"applicationExtensionKey": "6ea96cfd-5efd-450c-b3f3-0ddb1dee680c",
+		"applicationExtensionKey": "c9e15ac4-1dd0-42c2-ad0a-fe81d33c9122",
 		"save": {
 			"url": "https://custom-activity-v4.herokuapp.com/save",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true
-			
+			"useJwt": true,
+			"customerKey": "2022 falabella custom 2022"		
 		},
 		"publish": {
 			"url": "https://custom-activity-v4.herokuapp.com/publish",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true
+			"useJwt": true,
+			"customerKey": "2022 falabella custom 2022"
 		},
 		"validate": {
 			"url": "https://custom-activity-v4.herokuapp.com/validate",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true
+			"useJwt": true,
+			"customerKey": "2022 falabella custom 2022"
 		}
 	},
 	"wizardSteps": [
-        { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" }
+        { "label": "Step 1", "key": "step1", "active": true},
+        { "label": "Step 2", "key": "step2", "active": true}
 	],
 	"userInterfaces": {
 		"configModal": {
