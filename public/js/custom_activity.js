@@ -58,8 +58,6 @@ define(['postmonger'], (Postmonger) => {
         connection.trigger('requestEndpoints');
     }
 
-
-
     
     function initialize(data) {        
         if(data) {
@@ -71,7 +69,7 @@ define(['postmonger'], (Postmonger) => {
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			var inArgKey = Object.keys(inArg)[i];
-            console.log('inArg: ' + JSON.stringify(inArgs[i][inArgKey]));
+            console.log('inArg: ' + JSON.stringify(inArg));
             console.log('inArgKey: ' + inArgKey);
 			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
 		}        
@@ -150,6 +148,8 @@ define(['postmonger'], (Postmonger) => {
         payload['metaData'].isConfigured = true; 
 
         payload['arguments'].execute.inArguments = inArguments;
+
+        console.log(JSON.stringify(inArguments));
     }
 
 
