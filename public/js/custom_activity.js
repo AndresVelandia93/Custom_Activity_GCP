@@ -61,21 +61,18 @@ define(['postmonger'], (Postmonger) => {
 
 
     
-    function initialize(data) {
-        console.log("Datos: ", JSON.stringify(data));
-        
+    function initialize(data) {        
         if(data) {
             payload = data;
         }
 
-        $("#idCorp").val(payload["arguments"].execute.inArguments[0].DataGCP_idCorp);
-        $("#email").val(payload["arguments"].execute.inArguments[1].DataGCP_email);
-        $("#eventDate").val(payload["arguments"].execute.inArguments[2].DataGCP_eventDate);
-        $("#batchId").val(payload["arguments"].execute.inArguments[3].DataGCP_batchId);
-        $("#jobId").val(payload["arguments"].execute.inArguments[4].DataGCP_jobId);
-        $("#accountId").val(payload["arguments"].execute.inArguments[5].DataGCP_accountId);
-        $("#packageid").val(payload["arguments"].execute.inArguments[6].DataGCP_packageId);
-        
+        var inArgs = payload["arguments"].execute.inArguments;
+
+        for(var i = 0; i < inArgs.length; i++) {
+			var inArg = inArgs[i];
+			var inArgKey = Object.keys(inArg)[0];
+			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
+		}        
     }
 
 
@@ -101,7 +98,7 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        //console.log('*** Schema ***', JSON.stringify(data['schema']));
+        console.log('*** Schema ***', JSON.stringify(data['schema']));
         
         schema.forEach(element => {
             var option = document.createElement("option");
@@ -135,14 +132,14 @@ define(['postmonger'], (Postmonger) => {
     //Function for set up payload to send to backend service (execute)
     function configureInArguments() {
         var inArguments = [];
-        
+  
         console.log(stringify(schema));
         if (schema !== undefined && schema.length > 0) {
             for (var i in schema) {
                 var field = schema[i];
                 if (isEventDataSourceField(field)) {
                     var fieldName = extractFieldName(field);
-                    var prefixedFieldName = 'DataGCP_' + fieldName;
+                    var prefixedFieldName = '' + fieldName;
                     saveFieldToInArguments(field, prefixedFieldName, inArguments);   
                 }
             }
