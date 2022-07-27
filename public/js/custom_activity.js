@@ -70,7 +70,7 @@ define(['postmonger'], (Postmonger) => {
 
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
-			var inArgKey = Object.keys(inArg)[0];
+			var inArgKey = Object.keys(inArg)[i];
 			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
 		}        
     }
