@@ -98,7 +98,7 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        console.log('*** Schema ***', JSON.stringify(data['schema']));
+        //console.log('*** Schema ***', JSON.stringify(data['schema']));
         
         schema.forEach(element => {
             var option = document.createElement("option");
@@ -132,16 +132,15 @@ define(['postmonger'], (Postmonger) => {
     //Function for set up payload to send to backend service (execute)
     function configureInArguments() {
         var inArguments = [];
-  
-        console.log(stringify(schema));
+
         if (schema !== undefined && schema.length > 0) {
-            for (var i in schema) {
-                var field = schema[i];
-                if (isEventDataSourceField(field)) {
-                    var fieldName = extractFieldName(field);
-                    var prefixedFieldName = '' + fieldName;
-                    saveFieldToInArguments(field, prefixedFieldName, inArguments);   
-                }
+            // next, save each input field as an inArgument in the inArguments arr
+            var inputEls = document.getElementsByTagName('select');
+            // insert one argument into inArguments at a time
+            for(var i in inputEls) {
+                var fieldName = inputEls[i].id;
+                var fieldKey = inputEls[i].value;
+                saveFieldToInArguments(fieldKey, fieldName, inArguments);
             }
         }
 
@@ -162,9 +161,9 @@ define(['postmonger'], (Postmonger) => {
         return !field.key.startsWith('Interaction.');
     }
 
-    function saveFieldToInArguments(field, fieldName, inArguments) {
+    function saveFieldToInArguments(fieldKey, fieldName, inArguments) {
         var obj = {};
-        obj[fieldName] = "{{" + field.key + "}}";
+        obj[fieldName] = "{{" + fieldKey + "}}";
         inArguments.push(obj);
     }
 
