@@ -65,34 +65,17 @@ define(['postmonger'], (Postmonger) => {
         console.log("Datos: ", JSON.stringify(data));
         
         if(data) {
-            console.log("Entre");
             payload = data;
         }
-/*
-        $("#id_corp").val(setobjectID);
-        $("#email").val(setobjectID);
-        $("#event_date").val(setobjectID);
-        $("#batchid").val(setobjectID);
-        $("#jobid").val(setobjectID);
-        $("#accountid").val(setobjectID);
-        $("#packageid").val(setobjectID);
+
+        $("#idCorp").val(payload["arguments"].execute.inArguments[0].DataGCP_idCorp);
+        $("#email").val(payload["arguments"].execute.inArguments[1].DataGCP_email);
+        $("#eventDate").val(payload["arguments"].execute.inArguments[2].DataGCP_eventDate);
+        $("#batchId").val(payload["arguments"].execute.inArguments[3].DataGCP_batchId);
+        $("#jobId").val(payload["arguments"].execute.inArguments[4].DataGCP_jobId);
+        $("#accountId").val(payload["arguments"].execute.inArguments[5].DataGCP_accountId);
+        $("#packageid").val(payload["arguments"].execute.inArguments[6].DataGCP_packageId);
         
-
-
-        var setobjectID = payload["arguments"].execute.inArguments[0].objectID;;
-
-		var inArgs = payload["arguments"].execute.inArguments;
-
-		for(var i = 0; i < inArgs.length; i++) {
-			var inArg = inArgs[i];
-			console.log(inArg);
-			// there should only be one key saved per inArgument... (and this inArg key is based on the name of the field)
-			var inArgKey = Object.keys(inArg)[0];
-			//var inArgKey = inArgKeys[0];
-
-			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
-		}
-		//var inputEls = document.getElementsByTagName('input');*/
     }
 
 
@@ -125,13 +108,13 @@ define(['postmonger'], (Postmonger) => {
             option.value = element.key;
             option.text = element.name;
             
-            $('#id_corp').append($('<option>', {value: element.key, text: element.name}));
+            $('#idCorp').append($('<option>', {value: element.key, text: element.name}));
             $('#email').append($('<option>', {value: element.key, text: element.name}));
-            $('#event_date').append($('<option>', {value: element.key, text: element.name}));
-            $('#batchid').append($('<option>', {value: element.key, text: element.name}));
-            $('#jobid').append($('<option>', {value: element.key, text: element.name}));
-            $('#accountid').append($('<option>', {value: element.key, text: element.name}));
-            $('#packageid').append($('<option>', {value: element.key, text: element.name}));
+            $('#eventDate').append($('<option>', {value: element.key, text: element.name}));
+            $('#batchId').append($('<option>', {value: element.key, text: element.name}));
+            $('#jobId').append($('<option>', {value: element.key, text: element.name}));
+            $('#accountId').append($('<option>', {value: element.key, text: element.name}));
+            $('#packageId').append($('<option>', {value: element.key, text: element.name}));
         });
         //fillPlaceholderList(schema);    
     }
@@ -145,21 +128,22 @@ define(['postmonger'], (Postmonger) => {
     function save() {
         //Armar el JSON
         configureInArguments();
-        console.log("ON SAVE: " + JSON.stringify(payload));
+        //console.log("ON SAVE: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 
     //Function for set up payload to send to backend service (execute)
     function configureInArguments() {
         var inArguments = [];
+        
+        console.log(stringify(schema));
         if (schema !== undefined && schema.length > 0) {
             for (var i in schema) {
                 var field = schema[i];
                 if (isEventDataSourceField(field)) {
                     var fieldName = extractFieldName(field);
                     var prefixedFieldName = 'DataGCP_' + fieldName;
-                    saveFieldToInArguments(field, prefixedFieldName, inArguments);
-                    
+                    saveFieldToInArguments(field, prefixedFieldName, inArguments);   
                 }
             }
         }
