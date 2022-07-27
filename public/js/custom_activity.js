@@ -139,7 +139,7 @@ define(['postmonger'], (Postmonger) => {
             // next, save each input field as an inArgument in the inArguments arr
             var inputEls = document.getElementsByTagName('select');
             // insert one argument into inArguments at a time
-            for(var i in inputEls) {
+            for(var i = 0; i < inputEls.length; i++) {
                 var fieldName = inputEls[i].id;
                 var fieldKey = inputEls[i].value;
                 saveFieldToInArguments(fieldKey, fieldName, inArguments);
@@ -166,7 +166,7 @@ define(['postmonger'], (Postmonger) => {
 
     function saveFieldToInArguments(fieldKey, fieldName, inArguments) {
         var obj = {};
-        obj[fieldName] = "{{" + fieldKey + "}}";
+        obj[fieldName] = fieldKey;
         inArguments.push(obj);
     }
 
