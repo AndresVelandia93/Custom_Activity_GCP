@@ -65,10 +65,21 @@ define(['postmonger'], (Postmonger) => {
         console.log("Datos: ", JSON.stringify(data));
         
         if(data) {
+            console.log("Entre");
             payload = data;
         }
+/*
+        $("#id_corp").val(setobjectID);
+        $("#email").val(setobjectID);
+        $("#event_date").val(setobjectID);
+        $("#batchid").val(setobjectID);
+        $("#jobid").val(setobjectID);
+        $("#accountid").val(setobjectID);
+        $("#packageid").val(setobjectID);
+        
 
-        document.getElementById('testArea').value = JSON.stringify(data, null, 2);
+
+        var setobjectID = payload["arguments"].execute.inArguments[0].objectID;;
 
 		var inArgs = payload["arguments"].execute.inArguments;
 
@@ -81,7 +92,7 @@ define(['postmonger'], (Postmonger) => {
 
 			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
 		}
-		//var inputEls = document.getElementsByTagName('input');
+		//var inputEls = document.getElementsByTagName('input');*/
     }
 
 
