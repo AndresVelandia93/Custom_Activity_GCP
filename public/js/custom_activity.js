@@ -72,7 +72,7 @@ define(['postmonger'], (Postmonger) => {
             
             console.log('inArgKey: ' + inArgKey);
             console.log('inArg: ' + inArgs[i][inArgKey]);
-			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
+			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey]); 
 		}        
     }
 
