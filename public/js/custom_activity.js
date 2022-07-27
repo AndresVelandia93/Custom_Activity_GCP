@@ -66,9 +66,22 @@ define(['postmonger'], (Postmonger) => {
         
         if(data) {
             payload = data;
-            //var setobjectID = payload["arguments"].execute.inArguments[0].objectID;
-            //$("#id_corp").val(setobjectID);
         }
+
+        document.getElementById('testArea').value = JSON.stringify(data, null, 2);
+
+		var inArgs = payload["arguments"].execute.inArguments;
+
+		for(var i = 0; i < inArgs.length; i++) {
+			var inArg = inArgs[i];
+			console.log(inArg);
+			// there should only be one key saved per inArgument... (and this inArg key is based on the name of the field)
+			var inArgKey = Object.keys(inArg)[0];
+			//var inArgKey = inArgKeys[0];
+
+			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
+		}
+		//var inputEls = document.getElementsByTagName('input');
     }
 
 
