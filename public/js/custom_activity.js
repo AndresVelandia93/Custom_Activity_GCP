@@ -69,8 +69,9 @@ define(['postmonger'], (Postmonger) => {
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			var inArgKey = Object.keys(inArg)[0];
-            console.log('inArg: ' + JSON.stringify(inArg));
+            
             console.log('inArgKey: ' + inArgKey);
+            console.log('inArg: ' + inArgs[i][inArgKey]);
 			if(document.getElementById(inArgKey)) document.getElementById(inArgKey).value = inArgs[i][inArgKey];
 		}        
     }
@@ -148,8 +149,6 @@ define(['postmonger'], (Postmonger) => {
         payload['metaData'].isConfigured = true; 
 
         payload['arguments'].execute.inArguments = inArguments;
-
-        console.log(JSON.stringify(inArguments));
     }
 
 
