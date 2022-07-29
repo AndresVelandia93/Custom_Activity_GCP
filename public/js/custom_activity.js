@@ -51,8 +51,8 @@ define(['postmonger'], (Postmonger) => {
 
     //This function executes on render the page
     function onRender() {
-        connection.trigger('ready');
         connection.trigger('requestSchema');
+        connection.trigger('ready');
         connection.trigger('requestTriggerEventDefinition');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
@@ -100,7 +100,6 @@ define(['postmonger'], (Postmonger) => {
         schema = data['schema'];
         console.log('Primero');
         console.log('*** Schema ***', JSON.stringify(data));
-        console.log('*** test ***', JSON.stringify(data['schema'].inArguments));
         
         schema.forEach(element => {
             var option = document.createElement("option");
