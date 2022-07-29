@@ -51,8 +51,8 @@ define(['postmonger'], (Postmonger) => {
 
     //This function executes on render the page
     function onRender() {
-        connection.trigger('requestSchema');
         connection.trigger('ready');
+        connection.trigger('requestSchema');
         connection.trigger('requestTriggerEventDefinition');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
@@ -119,6 +119,8 @@ define(['postmonger'], (Postmonger) => {
 
     
     function onRequestEventDefinition(eventDefinition) {
+        console.log('Tercero');
+        console.log("onRequestEventDefinition: " + JSON.stringify(eventDefinition));
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
     }
 
