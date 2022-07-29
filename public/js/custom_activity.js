@@ -33,7 +33,6 @@ define(['postmonger'], (Postmonger) => {
 
     connection.on('initActivity', initialize);
 
-
     connection.on('requestedTriggerEventDefinition', onRequestEventDefinition);
 
     connection.on('clickedNext', onClickedNext);
