@@ -29,15 +29,12 @@ define(['postmonger'], (Postmonger) => {
 
     $(window).ready(onRender);
 
+    connection.on('requestedSchema', onRequestSchema);
 
     connection.on('initActivity', initialize);
 
 
     connection.on('requestedTriggerEventDefinition', onRequestEventDefinition);
-
-
-    connection.on('requestedSchema', onRequestSchema);
-
 
     connection.on('clickedNext', onClickedNext);
 
