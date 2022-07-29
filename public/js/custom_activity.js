@@ -29,11 +29,15 @@ define(['postmonger'], (Postmonger) => {
 
     $(window).ready(onRender);
 
-    connection.on('requestedSchema', onRequestSchema);
 
     connection.on('initActivity', initialize);
 
+
     connection.on('requestedTriggerEventDefinition', onRequestEventDefinition);
+
+
+    connection.on('requestedSchema', onRequestSchema);
+
 
     connection.on('clickedNext', onClickedNext);
 
@@ -57,8 +61,8 @@ define(['postmonger'], (Postmonger) => {
     
     function initialize(data) {
         console.log('Segundo');
-        console.log('*** Schema ***', JSON.stringify(schema));
-     
+        console.log('*** Schema ***', JSON.stringify(data));
+        console.log()      
         if(data) {
             payload = data;
         }
@@ -95,7 +99,8 @@ define(['postmonger'], (Postmonger) => {
     function onRequestSchema(data) {
         schema = data['schema'];
         console.log('Primero');
-        console.log('*** Schema ***', JSON.stringify(data['schema']));
+        console.log('*** Schema ***', JSON.stringify(data));
+        console.log('*** test ***', JSON.stringify(data['schema'].inArguments));
         
         schema.forEach(element => {
             var option = document.createElement("option");
