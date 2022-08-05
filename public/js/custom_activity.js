@@ -62,7 +62,7 @@ define(['postmonger'], (Postmonger) => {
     function initialize(data) {
         console.log('Segundo');
         console.log('*** Schema ***', JSON.stringify(data));
-        console.log()      
+        console.log('*** Schema ***', JSON.stringify(payload));   
         if(data) {
             payload = data;
         }
@@ -102,6 +102,7 @@ define(['postmonger'], (Postmonger) => {
         console.log('*** Schema ***', JSON.stringify(data));
         
         schema.forEach(element => {
+            
             var option = document.createElement("option");
             option.value = element.key;
             option.text = element.name;
@@ -119,8 +120,6 @@ define(['postmonger'], (Postmonger) => {
 
     
     function onRequestEventDefinition(eventDefinition) {
-        console.log('Tercero');
-        console.log("onRequestEventDefinition: " + JSON.stringify(eventDefinition));
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
     }
 
