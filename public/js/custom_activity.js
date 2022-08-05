@@ -60,18 +60,10 @@ define(['postmonger'], (Postmonger) => {
 
     
     function initialize(data) {
-        console.log('Primero');
-        console.log('*** Schema ***', JSON.stringify(data)); 
+        //Funcion que se ejecuta en primer lugar
         if(data) {
             payload = data;
-        }
-        var inArgs = payload["arguments"].execute.inArguments;
-
-        for(var i = 0; i < inArgs.length; i++) {
-			var inArg = inArgs[i];
-			var inArgKey = Object.keys(inArg)[0];
-			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey]); 
-		}        
+        }       
     }
 
 
@@ -96,12 +88,11 @@ define(['postmonger'], (Postmonger) => {
 
 
     function onRequestSchema(data) {
+        //Funcion que se ejecuta en segundo lugar
+        //console.log('*** Schema ***', JSON.stringify(data));
+        
         schema = data['schema'];
-        console.log('Segundo');
-        console.log('*** Schema ***', JSON.stringify(data));
-        console.log('*** Payload ***', JSON.stringify(payload));  
-        schema.forEach(element => {
-            
+        schema.forEach(element => {  
             var option = document.createElement("option");
             option.value = element.key;
             option.text = element.name;
@@ -114,6 +105,13 @@ define(['postmonger'], (Postmonger) => {
             $('#accountId').append($('<option>', {value: element.key, text: element.name}));
             $('#packageId').append($('<option>', {value: element.key, text: element.name}));
         });
+
+        var inArgs = payload["arguments"].execute.inArguments;
+        for(var i = 0; i < inArgs.length; i++) {
+			var inArg = inArgs[i];
+			var inArgKey = Object.keys(inArg)[0];
+			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey]); 
+		}
         //fillPlaceholderList(schema);    
     }
 
