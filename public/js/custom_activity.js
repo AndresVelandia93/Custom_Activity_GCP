@@ -60,9 +60,8 @@ define(['postmonger'], (Postmonger) => {
 
     
     function initialize(data) {
-        console.log('Segundo');
-        console.log('*** Schema ***', JSON.stringify(data));
-        console.log('*** Paykoad ***', JSON.stringify(payload));   
+        console.log('Primero');
+        console.log('*** Schema ***', JSON.stringify(data)); 
         if(data) {
             payload = data;
         }
@@ -98,9 +97,9 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         schema = data['schema'];
-        console.log('Primero');
+        console.log('Segundo');
         console.log('*** Schema ***', JSON.stringify(data));
-        
+        console.log('*** Payload ***', JSON.stringify(payload));  
         schema.forEach(element => {
             
             var option = document.createElement("option");
