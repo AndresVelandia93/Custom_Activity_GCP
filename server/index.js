@@ -59,6 +59,8 @@ app.post('/execute', function (req, res) {
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
 
         //Here you have all you body decoded from JWT, you only have to work with params and manage response (200 or 400)
+        console.log('*** decoded ***', JSON.stringify(decoded));
+
         res.status(200);
         res.send({
             route: 'execute'

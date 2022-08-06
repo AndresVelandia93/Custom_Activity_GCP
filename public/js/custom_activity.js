@@ -117,7 +117,6 @@ define(['postmonger'], (Postmonger) => {
 
     
     function onRequestEventDefinition(eventDefinition) {
-        console.log('*** onRequestEventDefinition ***', JSON.stringify(eventDefinition));
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
     }
 
