@@ -124,7 +124,7 @@ define(['postmonger'], (Postmonger) => {
     function save() {
         //Armar el JSON
         configureInArguments();
-        //console.log("ON SAVE: " + JSON.stringify(payload));
+        console.log("ON SAVE: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 
