@@ -71,6 +71,11 @@
       }
 	},
 	"schema": {
-		"inArguments": []
+		"arguments": {
+			"execute": {
+				"inArguments": [],
+				"outArguments": []
+			}
+		}
 	}
 }
