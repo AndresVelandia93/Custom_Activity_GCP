@@ -21,31 +21,28 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //All logic for save endpoint
 app.post('/save', function (req, res) {
-  res.status(200).json({'activity':'Save'});
-  /*res.status(200);
+  res.status(200);
   res.send({
     route: 'save'
-  });*/
+  });
 });
 
 
 //All logic for publis endpoint
 app.post('/publish', function (req, res) {
-  res.status(200).json({'activity':'Publish'});
-  /*res.status(200);
+  res.status(200);
   res.send({
     route: 'publish'
-  });*/
+  });
 });
 
 
 //All logic for validate endpoint
 app.post('/validate', function (req, res) {
-  res.status(200).json({'activity':'Validate'});
-  /*res.status(200);
+  res.status(200);
   res.send({
     route: 'validate'
-  });*/
+  });
 });
 
 
