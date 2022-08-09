@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const path = require('path');
+const https = require('https');
 const JWT = require(path.join(__dirname, 'lib', 'jwt.js'));
 const Pkg = require(path.join(__dirname, '../', 'package.json'));
 
@@ -45,6 +46,12 @@ app.post('/validate', function (req, res) {
   });
 });
 
+app.get('/test', function (req, res) {
+  res.status(200);
+  res.send({
+    route: 'validate'
+  });
+});
 
 //All logic for execute endpoint and JWT decoding
 app.post('/execute', function (req, res) {
@@ -58,11 +65,46 @@ app.post('/execute', function (req, res) {
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
 
         //Here you have all you body decoded from JWT, you only have to work with params and manage response (200 or 400)
-        console.log('*** decoded ***', JSON.stringify(decoded));
+        var inArgsReqPayload = decoded.inArguments;
+
+        var post_data = JSON.stringify({
+          "id_corp": inArgsReqPayload[0].idCorp,
+          "email": inArgsReqPayload[1].email,
+          "event_date": inArgsReqPayload[2].eventDate,
+          "batchid": inArgsReqPayload[3].batchId,
+          "jobid": inArgsReqPayload[4].jobId,
+          "accountid": inArgsReqPayload[5].accountId,
+          "packageid": inArgsReqPayload[6].packageId
+        });
+
+        var options = {
+          'hostname': 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
+          'path': '/',
+          'method': 'POST',
+          'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Content-Length': post_data.length
+          }
+        };
+
+        const req = https.request(options, res => {
+          console.log(`statusCode: ${res.statusCode}`);
+        
+          res.on('data', d => {
+            process.stdout.write(d);
+          });
+        });
+        
+        req.on('error', error => {
+          console.error(error);
+        });
+        req.write(post_data);
+        req.end();
 
         res.status(200);
         res.send({
-            route: 'execute'
+          route: 'execute'
         });
     } else {
       console.error('inArguments invalid.');

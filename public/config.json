@@ -77,8 +77,5 @@
 				"outArguments": []
 			}
 		}
-	},
-	"gcp": {
-		"urlEndPoint": "https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente"
 	}
 }
