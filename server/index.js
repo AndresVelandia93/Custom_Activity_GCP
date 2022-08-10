@@ -11,11 +11,13 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 
+
 // Register middleware that parses the request payload.
 app.use(bodyParser.raw({
   type: 'application/jwt'
 }));
 
+//app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -46,18 +48,12 @@ app.post('/validate', function (req, res) {
   });
 });
 
-app.get('/test', function (req, res) {
-  res.status(200);
-  res.send({
-    route: 'validate'
-  });
-});
 
 //All logic for execute endpoint and JWT decoding
 app.post('/execute', function (req, res) {
+  console.log(req.body);
 
   JWT(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
-
     if (err) {
       console.log("ERR: " + err);
       return res.status(401).end();
