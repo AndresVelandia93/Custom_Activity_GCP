@@ -20,7 +20,7 @@
   "options": {
     "salesforce": {
       "marketingCloud": {
-        "jwtSecret": "knarnDliZKDRIRZsn5mgX6EH2F_QdWyPhk7wW4vm_Y9QdyNwOqW-OC9to0Et2hQlj8jqd1ovde5DHRA5yIoErAIVftAVj7de_2QEO9xYKQeRrgnRgKIsxIoqV4W4l3JiRGZrOvYJRzONKkLBDNoPuzcIk17Aoc12HGy3WROb2Yb_Io89PEKGWfHhk_DY-jL5g_4nAv9yIcVC8ZY-56Qhannfy5EzBDJuATo6JOluZE-zgW7sZagS5arQZ1tG4Q2"
+        "jwtSecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ew0KICAiQ29udGFjdEtleSI6ICJhdmVsYW5kaWFAd29kb2JveC5jb20iLA0KICAiRmlyc3ROYW1lIjogIkFuZHJlcyIsDQogICJMYXN0TmFtZSI6ICJWZWxhbmRpYSIsDQogICJFbWFpbCI6ICJhdmVsYW5kaWFAd29kb2JveC5jb20iDQp9.dZNPz2dpZVNKV0-_CKvloKEmUp6mWSDYcDC6j-UYFgw"
       }
     }
   }
