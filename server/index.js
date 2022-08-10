@@ -51,7 +51,7 @@ app.post('/validate', function (req, res) {
 
 //All logic for execute endpoint and JWT decoding
 app.post('/execute', function (req, res) {
-
+  console.log('Prueba 2');
   JWT(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
     if (err) {
       console.log("ERR: " + err);
