@@ -84,24 +84,16 @@ app.post('/execute', function (req, res) {
         };
         console.log(post_data);
         console.log(options);
-        /*
-        const req = https.request(options, res => {
-          console.log(`statusCode: ${res.statusCode}`);
-        
-          res.on('data', d => {
-            process.stdout.write(d);
-          });
-        });
-        
-        req.on('error', error => {
-          console.error(error);
-        });
-        req.write(post_data);
-        req.end();*/
+        var promise = httpRequestGCP(options, post_data);
 
-        res.status(200);
-        res.send({
-          route: 'execute'
+        promise
+        .then(function(resultado) {
+          console.log(resultado);
+          res.status(200).send({resultado: 'Exitoso'});
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.status(400).end();
         });
     } else {
       console.error('inArguments invalid.');
@@ -110,6 +102,41 @@ app.post('/execute', function (req, res) {
   });
 });
 
+//This function execute external web service of GCP
+function httpRequestGCP(params, postData) {
+  return new Promise(function(resolve, reject) {
+    var req = https.request(params, function(res) {
+        // reject on bad status
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+            return reject(new Error('statusCode: ' + res.statusCode));
+        }
+        // write result
+        var resultado = [];
+        res.on('data', function(chunk) {
+          resultado.push(chunk);
+      });
+        // resolve on end
+        res.on('end', function() {
+            try {
+              resultado = JSON.parse(Buffer.concat(resultado).toString());
+            } catch(e) {
+                reject(e);
+            }
+            resolve(resultado);
+        });
+    });
+    // reject on request error
+    req.on('error', function(err) {
+        // This is not a "Second reject", just a different sort of failure
+        reject(err);
+    });
+    if (postData) {
+        req.write(postData);
+    }
+    // IMPORTANT
+    req.end();
+  });
+}
 
 //This function allows you to extract Field name from In Arguments on body
 function extractFieldName(field) {
