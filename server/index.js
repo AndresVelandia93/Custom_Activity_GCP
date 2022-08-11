@@ -63,13 +63,13 @@ app.post('/execute', function (req, res) {
         var inArgsReqPayload = decoded.inArguments;
 
         var post_data = JSON.stringify({
-          "id_corp": inArgsReqPayload[0].idCorp,
-          "email": inArgsReqPayload[1].email,
-          "event_date": inArgsReqPayload[2].eventDate,
-          "batchid": inArgsReqPayload[3].batchId,
-          "jobid": inArgsReqPayload[4].jobId,
-          "accountid": inArgsReqPayload[5].accountId,
-          "packageid": inArgsReqPayload[6].packageId
+          "id_corp": "{{" + inArgsReqPayload[0].idCorp + "}}",
+          "email": "{{" + inArgsReqPayload[1].email + "}}",
+          "event_date": "{{" + inArgsReqPayload[2].eventDate + "}}",
+          "batchid": "{{" + inArgsReqPayload[3].batchId + "}}",
+          "jobid": "{{" + inArgsReqPayload[4].jobId + "}}",
+          "accountid": "{{" + inArgsReqPayload[5].accountId + "}}",
+          "packageid": "{{" + inArgsReqPayload[6].packageId + "}}"
         });
 
         var options = {
