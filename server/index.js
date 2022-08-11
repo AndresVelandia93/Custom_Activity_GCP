@@ -73,8 +73,8 @@ app.post('/execute', function (req, res) {
         });
 
         var options = {
-          'hostname': 'politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
-          'path': '/',
+          'hostname': 'politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com',
+          'path': '/api/Procesar/registrar-cliente',
           'method': 'POST',
           'headers': {
             'Accept': 'application/json',
