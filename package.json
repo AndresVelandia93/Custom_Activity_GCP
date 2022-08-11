@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "jwt-simple": "^0.5.6",
     "path": "^0.12.7",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
@@ -20,7 +21,7 @@
   "options": {
     "salesforce": {
       "marketingCloud": {
-        "jwtSecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ew0KICAiQ29udGFjdEtleSI6ICJhdmVsYW5kaWFAd29kb2JveC5jb20iLA0KICAiRmlyc3ROYW1lIjogIkFuZHJlcyIsDQogICJMYXN0TmFtZSI6ICJWZWxhbmRpYSIsDQogICJFbWFpbCI6ICJhdmVsYW5kaWFAd29kb2JveC5jb20iDQp9.dZNPz2dpZVNKV0-_CKvloKEmUp6mWSDYcDC6j-UYFgw"
+        "jwtSecret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKV1QgR0NQIiwiaWF0IjoxNjYwMTc1OTc2LCJleHAiOjE2OTE3MTE5NzYsImF1ZCI6ImF2ZWxhbmRpYUB3b2RvYm94LmNvbSIsInN1YiI6ImF2ZWxhbmRpYUB3b2RvYm94LmNvbSJ9.4G9sagM83pL-VkhCuOFfSKbkA0gOi3oC9k9Ylu1fXH0"
       }
     }
   }
