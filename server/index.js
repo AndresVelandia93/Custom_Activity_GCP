@@ -52,11 +52,6 @@ app.post('/validate', function (req, res) {
 //All logic for execute endpoint and JWT decoding
 app.post('/execute', function (req, res) {
 
-
-  console.log('Prueba 3');
-  console.log(Pkg.options.salesforce.marketingCloud.jwtSecret);
-  console.log(req.body);
-
   JWT(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
     if (err) {
       console.log("ERR: " + err);
@@ -87,7 +82,9 @@ app.post('/execute', function (req, res) {
             'Content-Length': post_data.length
           }
         };
-
+        console.log(post_data);
+        console.log(options);
+        /*
         const req = https.request(options, res => {
           console.log(`statusCode: ${res.statusCode}`);
         
@@ -100,7 +97,7 @@ app.post('/execute', function (req, res) {
           console.error(error);
         });
         req.write(post_data);
-        req.end();
+        req.end();*/
 
         res.status(200);
         res.send({
