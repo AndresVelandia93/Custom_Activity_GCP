@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const path = require('path');
-const https = require('https');
 const JWT = require(path.join(__dirname, 'lib', 'jwt.js'));
 const Pkg = require(path.join(__dirname, '../', 'package.json'));
 
@@ -60,41 +59,8 @@ app.post('/execute', function (req, res) {
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
 
         //Here you have all you body decoded from JWT, you only have to work with params and manage response (200 or 400)
-        var inArgsReqPayload = decoded.inArguments;
+        createJson (decoded.inArguments);
 
-        var post_data = JSON.stringify({
-          "id_corp": "{{InteractionDefaults.Nombre}}",
-          "email": "{{" + inArgsReqPayload[1].email + "}}",
-          "event_date": "{{" + inArgsReqPayload[2].eventDate + "}}",
-          "batchid": "{{" + inArgsReqPayload[3].batchId + "}}",
-          "jobid": "{{" + inArgsReqPayload[4].jobId + "}}",
-          "accountid": "{{" + inArgsReqPayload[5].accountId + "}}",
-          "packageid": "{{" + inArgsReqPayload[6].packageId + "}}"
-        });
-
-        var options = {
-          'hostname': 'politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com',
-          'path': '/api/Procesar/registrar-cliente',
-          'method': 'POST',
-          'headers': {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Content-Length': post_data.length
-          }
-        };
-        console.log(post_data);
-        console.log(options);
-        var promise = httpRequestGCP(options, post_data);
-
-        promise
-        .then(function(resultado) {
-          console.log(resultado);
-          res.status(200).send({resultado: 'Exitoso'});
-        })
-        .catch(function(err) {
-          console.log(err);
-          res.status(400).end();
-        });
     } else {
       console.error('inArguments invalid.');
       return res.status(400).end();
@@ -102,41 +68,71 @@ app.post('/execute', function (req, res) {
   });
 });
 
-//This function execute external web service of GCP
-function httpRequestGCP(params, postData) {
-  return new Promise(function(resolve, reject) {
-    var req = https.request(params, function(res) {
-        // reject on bad status
-        if (res.statusCode < 200 || res.statusCode >= 300) {
-            return reject(new Error('statusCode: ' + res.statusCode));
-        }
-        // write result
-        var resultado = [];
-        res.on('data', function(chunk) {
-          resultado.push(chunk);
-      });
-        // resolve on end
-        res.on('end', function() {
-            try {
-              resultado = JSON.parse(Buffer.concat(resultado).toString());
-            } catch(e) {
-                reject(e);
-            }
-            resolve(resultado);
-        });
-    });
-    // reject on request error
-    req.on('error', function(err) {
-        // This is not a "Second reject", just a different sort of failure
-        reject(err);
-    });
-    if (postData) {
-        req.write(postData);
+//This function create Json for Web Service
+function createJson(decoded) {
+  var regex = {};
+  var inArguments = decoded;
+
+  var id_corpField, emailField, event_dateField, batchidField, jobidField, accountidField, packageidField;
+
+  inArguments.forEach(function (obj) {
+    if (obj.id_corp != undefined) {
+      id_corpField = obj.id_corp;
     }
-    // IMPORTANT
-    req.end();
+    else if (obj.email != undefined) {
+      emailField = obj.email;
+    }
+    else if (obj.event_date != undefined) {
+      event_dateField = obj.event_date;
+    }
+    else if (obj.batchid != undefined) {
+      batchidField = obj.batchid;
+    }
+    else if (obj.jobid != undefined) {
+      jobidField = obj.jobid;
+    }
+    else if (obj.accountid != undefined) {
+      accountidField = obj.accountid;
+    }
+    else if (obj.packageid != undefined) {
+      packageidField = obj.packageid;
+    }
+    else {
+      regex['%%' + extractFieldName(Object.keys(obj)) + '%%'] = Object.values(obj).toString();
+    }
+  });
+
+  var postData = {
+    method: 'POST',
+    uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
+    headers: {
+      'content-type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body:
+    {
+      "id_corp": regex[firstnameField],
+      "email": regex[firstnameField],
+      "event_date": regex[firstnameField],
+      "batchid": regex[firstnameField],
+      "jobid": regex[firstnameField],
+      "accountid": regex[firstnameField],
+      "packageid": regex[firstnameField]
+    },
+    json: true
+  };
+
+  console.log(postData);
+  rp(postData).then(function (response) {
+    console.log(response);
+    console.log("Success Send Heroku");
+  })
+  .catch(function (err) {
+    console.log(err);
+    console.log("Failed Send");
   });
 }
+
 
 //This function allows you to extract Field name from In Arguments on body
 function extractFieldName(field) {
