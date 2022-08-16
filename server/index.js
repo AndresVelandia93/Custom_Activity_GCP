@@ -63,7 +63,7 @@ app.post('/execute', function (req, res) {
         var inArgsReqPayload = decoded.inArguments;
 
         var post_data = JSON.stringify({
-          "id_corp": "{{Contact.Attribute.Test_Custom_Activity.Nombre}}",
+          "id_corp": "{{InteractionDefaults.Nombre}}",
           "email": "{{" + inArgsReqPayload[1].email + "}}",
           "event_date": "{{" + inArgsReqPayload[2].eventDate + "}}",
           "batchid": "{{" + inArgsReqPayload[3].batchId + "}}",
