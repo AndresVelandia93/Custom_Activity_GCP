@@ -92,15 +92,15 @@ define(['postmonger'], (Postmonger) => {
         //console.log('*** Schema ***', JSON.stringify(data));
         schema = data['schema'];
         schema.forEach(element => {              
-            //option.text = extractFieldName(element);
+            var valor = extractFieldName(element);
             
-            $('#idCorp').append($('<option>', {value: element.key, text: element.name}));
-            $('#email').append($('<option>', {value: element.key, text: element.name}));
-            $('#eventDate').append($('<option>', {value: element.key, text: element.name}));
-            $('#batchId').append($('<option>', {value: element.key, text: element.name}));
-            $('#jobId').append($('<option>', {value: element.key, text: element.name}));
-            $('#accountId').append($('<option>', {value: element.key, text: element.name}));
-            $('#packageId').append($('<option>', {value: element.key, text: element.name}));
+            $('#idCorp').append($('<option>', {value: valor, text: element.name}));
+            $('#email').append($('<option>', {value: valor, text: element.name}));
+            $('#eventDate').append($('<option>', {value: valor, text: element.name}));
+            $('#batchId').append($('<option>', {value: valor, text: element.name}));
+            $('#jobId').append($('<option>', {value: valor, text: element.name}));
+            $('#accountId').append($('<option>', {value: valor, text: element.name}));
+            $('#packageId').append($('<option>', {value: valor, text: element.name}));
         });
 
         var inArgs = payload["arguments"].execute.inArguments;
