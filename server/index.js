@@ -76,32 +76,33 @@ function createJson(decoded) {
   var id_corpField, emailField, event_dateField, batchidField, jobidField, accountidField, packageidField;
 
   inArguments.forEach(function (obj) {
-    console.log(obj);
-    if (obj.id_corp != undefined) {
-      id_corpField = obj.id_corp;
+    if (obj.idCorp != undefined) {
+      id_corpField = obj.idCorp;
     }
     else if (obj.email != undefined) {
       emailField = obj.email;
     }
-    else if (obj.event_date != undefined) {
-      event_dateField = obj.event_date;
+    else if (obj.eventDate != undefined) {
+      event_dateField = obj.eventDate;
     }
-    else if (obj.batchid != undefined) {
-      batchidField = obj.batchid;
+    else if (obj.batchId != undefined) {
+      batchidField = obj.batchId;
     }
-    else if (obj.jobid != undefined) {
-      jobidField = obj.jobid;
+    else if (obj.jobId != undefined) {
+      jobidField = obj.jobId;
     }
-    else if (obj.accountid != undefined) {
-      accountidField = obj.accountid;
+    else if (obj.accountId != undefined) {
+      accountidField = obj.accountId;
     }
-    else if (obj.packageid != undefined) {
-      packageidField = obj.packageid;
+    else if (obj.packageId != undefined) {
+      packageidField = obj.packageId;
     }
     else {
       regex['%%' + extractFieldName(Object.keys(obj)) + '%%'] = Object.values(obj).toString();
     }
   });
+  console.log(id_corpField);
+  console.log(packageidField);
   console.log(regex);
   var postData = {
     method: 'POST',
