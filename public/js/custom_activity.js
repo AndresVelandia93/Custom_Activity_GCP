@@ -92,7 +92,7 @@ define(['postmonger'], (Postmonger) => {
         //console.log('*** Schema ***', JSON.stringify(data));
         schema = data['schema'];
         schema.forEach(element => {              
-            var valor = "{{" + extractFieldName(element) + "}}";
+            var valor = extractFieldName(element);
             $('#idCorp').append($('<option>', {value: valor, text: element.name}));
             $('#email').append($('<option>', {value: valor, text: element.name}));
             $('#eventDate').append($('<option>', {value: valor, text: element.name}));
@@ -106,7 +106,7 @@ define(['postmonger'], (Postmonger) => {
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			var inArgKey = Object.keys(inArg)[0];
-			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey]); 
+			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey].replace('{{', '').replace('}}', '')); 
 		}
         //fillPlaceholderList(schema);    
     }
