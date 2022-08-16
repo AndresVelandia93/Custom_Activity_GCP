@@ -90,20 +90,20 @@ define(['postmonger'], (Postmonger) => {
     function onRequestSchema(data) {
         //Funcion que se ejecuta en segundo lugar
         //console.log('*** Schema ***', JSON.stringify(data));
-        
-        schema = data['schema'];
-        for (var i in schema) { 
-            var field = schema[i];
-            var fieldName = extractFieldName(field);
+        schema.forEach(element => {              
+            var option = document.createElement("option");
+            option.value = element.key;
+            option.text = element.name;
+            //option.text = extractFieldName(element);
             
-            $('#idCorp').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#email').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#eventDate').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#batchId').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#jobId').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#accountId').append($('<option>', {value: fieldName, text: fieldName}));
-            $('#packageId').append($('<option>', {value: fieldName, text: fieldName}));
-        }
+            $('#idCorp').append($('<option>', option));
+            $('#email').append($('<option>', option));
+            $('#eventDate').append($('<option>', option));
+            $('#batchId').append($('<option>', option));
+            $('#jobId').append($('<option>', option));
+            $('#accountId').append($('<option>', option));
+            $('#packageId').append($('<option>', option));
+        });
 
         var inArgs = payload["arguments"].execute.inArguments;
         for(var i = 0; i < inArgs.length; i++) {
