@@ -137,9 +137,8 @@ define(['postmonger'], (Postmonger) => {
             // insert one argument into inArguments at a time
             for(var i = 0; i < inputEls.length; i++) {
                 var fieldName = inputEls[i].id;
-                var prefixedFieldName = 'com.falabella.event.data.' + fieldName;
                 var fieldKey = inputEls[i].value;
-                saveFieldToInArguments(fieldKey, prefixedFieldName, inArguments);
+                saveFieldToInArguments(fieldKey, fieldName, inArguments);
             }
         }
 
