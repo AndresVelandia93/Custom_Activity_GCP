@@ -111,13 +111,13 @@ function createJson(decoded) {
     },
     body:
     {
-      "id_corp": regex[firstnameField],
-      "email": regex[firstnameField],
-      "event_date": regex[firstnameField],
-      "batchid": regex[firstnameField],
-      "jobid": regex[firstnameField],
-      "accountid": regex[firstnameField],
-      "packageid": regex[firstnameField]
+      "id_corp": regex[id_corpField],
+      "email": regex[emailField],
+      "event_date": regex[event_dateField],
+      "batchid": regex[batchidField],
+      "jobid": regex[jobidField],
+      "accountid": regex[accountidField],
+      "packageid": regex[packageidField]
     },
     json: true
   };
