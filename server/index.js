@@ -76,6 +76,7 @@ function createJson(decoded) {
   var id_corpField, emailField, event_dateField, batchidField, jobidField, accountidField, packageidField;
 
   inArguments.forEach(function (obj) {
+    console.log(obj);
     if (obj.idCorp != undefined) {
       id_corpField = obj.idCorp;
     }
@@ -101,7 +102,9 @@ function createJson(decoded) {
       regex['%%' + extractFieldName(Object.keys(obj)) + '%%'] = Object.values(obj).toString();
     }
   });
-
+  console.log(id_corpField);
+  console.log(packageidField);
+  console.log(regex);
   var postData = {
     method: 'POST',
     uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
