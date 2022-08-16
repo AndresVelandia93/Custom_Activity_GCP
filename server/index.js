@@ -101,7 +101,7 @@ function createJson(decoded) {
       regex['%%' + extractFieldName(Object.keys(obj)) + '%%'] = Object.values(obj).toString();
     }
   });
-
+  console.log(regex);
   var postData = {
     method: 'POST',
     uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
@@ -121,7 +121,6 @@ function createJson(decoded) {
     },
     json: true
   };
-  console.log("Entre");
   console.log(postData);
   rp(postData).then(function (response) {
     console.log(response);
