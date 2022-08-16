@@ -93,7 +93,7 @@ define(['postmonger'], (Postmonger) => {
         schema = data['schema'];
         schema.forEach(element => {              
             var valor = extractFieldName(element);
-            
+            console.log(valor);
             $('#idCorp').append($('<option>', {value: valor, text: element.name}));
             $('#email').append($('<option>', {value: valor, text: element.name}));
             $('#eventDate').append($('<option>', {value: valor, text: element.name}));
