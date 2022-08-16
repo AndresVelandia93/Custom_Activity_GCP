@@ -76,6 +76,7 @@ function createJson(decoded) {
   var id_corpField, emailField, event_dateField, batchidField, jobidField, accountidField, packageidField;
 
   inArguments.forEach(function (obj) {
+    console.log(obj);
     if (obj.id_corp != undefined) {
       id_corpField = obj.id_corp;
     }
@@ -102,7 +103,6 @@ function createJson(decoded) {
     }
   });
   console.log(regex);
-  console.log(id_corpField);
   var postData = {
     method: 'POST',
     uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
