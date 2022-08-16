@@ -101,9 +101,7 @@ function createJson(decoded) {
       regex['%%' + extractFieldName(Object.keys(obj)) + '%%'] = Object.values(obj).toString();
     }
   });
-  console.log(id_corpField);
-  console.log(packageidField);
-  console.log(regex);
+
   var postData = {
     method: 'POST',
     uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
@@ -113,13 +111,13 @@ function createJson(decoded) {
     },
     body:
     {
-      "id_corp": regex[id_corpField],
-      "email": regex[emailField],
-      "event_date": regex[event_dateField],
-      "batchid": regex[batchidField],
-      "jobid": regex[jobidField],
-      "accountid": regex[accountidField],
-      "packageid": regex[packageidField]
+      "id_corp": id_corpField,
+      "email": emailField,
+      "event_date": event_dateField,
+      "batchid": batchidField,
+      "jobid": jobidField,
+      "accountid": accountidField,
+      "packageid": packageidField
     },
     json: true
   };
