@@ -95,8 +95,6 @@ define(['postmonger'], (Postmonger) => {
         for (var i in schema) { 
             var field = schema[i];
             var fieldName = extractFieldName(field);
-
-            var option = document.createElement("option");
             
             $('#idCorp').append($('<option>', {value: fieldName, text: fieldName}));
             $('#email').append($('<option>', {value: fieldName, text: fieldName}));
@@ -125,7 +123,7 @@ define(['postmonger'], (Postmonger) => {
     function save() {
         //Armar el JSON
         configureInArguments();
-        //console.log("ON SAVE: " + JSON.stringify(payload));
+        console.log("ON SAVE: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 

@@ -102,6 +102,7 @@ function createJson(decoded) {
     }
   });
   console.log(regex);
+  console.log(id_corpField);
   var postData = {
     method: 'POST',
     uri: 'https://politica-toques-dot-tot-bi-corp-campautomat-dev.appspot.com/api/Procesar/registrar-cliente',
