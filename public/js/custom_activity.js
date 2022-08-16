@@ -89,7 +89,7 @@ define(['postmonger'], (Postmonger) => {
 
     function onRequestSchema(data) {
         //Funcion que se ejecuta en segundo lugar
-        console.log('*** Schema ***', JSON.stringify(data));
+        //console.log('*** Schema ***', JSON.stringify(data));
         
         schema = data['schema'];
         for (var i in schema) { 
@@ -139,7 +139,7 @@ define(['postmonger'], (Postmonger) => {
                 var fieldName = inputEls[i].id;
                 var prefixedFieldName = 'Contact.Attribute.Custom_Activity.' + fieldName;
                 var fieldKey = inputEls[i].value;
-                saveFieldToInArguments(fieldKey, fieldName, inArguments);
+                saveFieldToInArguments(fieldKey, prefixedFieldName, inArguments);
             }
         }
 
@@ -162,7 +162,7 @@ define(['postmonger'], (Postmonger) => {
 
     function saveFieldToInArguments(fieldKey, fieldName, inArguments) {
         var obj = {};
-        obj[fieldName] = fieldKey;
+        obj[fieldName] = "{{" + fieldKey + "}}";
         inArguments.push(obj);
     }
 
