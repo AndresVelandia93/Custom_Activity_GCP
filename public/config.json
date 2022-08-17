@@ -30,7 +30,7 @@
 		}
 	},
 	"configurationArguments": {
-		"applicationExtensionKey": "6ea96cfd-5efd-450c-b3f3-0ddb1dee680c",
+		"applicationExtensionKey": "4bf4470f-e74f-48e8-879c-3c77852246a3",
 		"save": {
 			"url": "https://custom-activity-v4.herokuapp.com/save",
 			"verb": "POST",
