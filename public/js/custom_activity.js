@@ -106,7 +106,7 @@ define(['postmonger'], (Postmonger) => {
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			var inArgKey = Object.keys(inArg)[0];
-			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey].replace('{{', '').replace('}}', '')); 
+			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey].replace('{{Event.DEAudience-5584a25a-f77b-45fb-7ea4-ea5c8f8b05cf.', '').replace('}}', '')); 
 		}
         //fillPlaceholderList(schema);    
     }
@@ -158,7 +158,7 @@ define(['postmonger'], (Postmonger) => {
 
     function saveFieldToInArguments(fieldKey, fieldName, inArguments) {
         var obj = {};
-        obj[fieldName] = "{{" + fieldKey + "}}";
+        obj[fieldName] = "{{Event.DEAudience-5584a25a-f77b-45fb-7ea4-ea5c8f8b05cf." + fieldKey + "}}";
         inArguments.push(obj);
     }
 
