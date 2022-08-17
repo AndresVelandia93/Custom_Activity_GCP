@@ -59,7 +59,6 @@ app.post('/execute', function (req, res) {
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
 
         //Here you have all you body decoded from JWT, you only have to work with params and manage response (200 or 400)
-        console.log(decoded);
         createJson (decoded.inArguments);
 
     } else {
@@ -77,7 +76,6 @@ function createJson(decoded) {
   var id_corpField, emailField, event_dateField, batchidField, jobidField, accountidField, packageidField;
 
   inArguments.forEach(function (obj) {
-    console.log(obj);
     if (obj.idCorp != undefined) {
       id_corpField = obj.idCorp;
     }

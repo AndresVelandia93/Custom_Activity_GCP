@@ -60,12 +60,11 @@ define(['postmonger'], (Postmonger) => {
 
     
     function initialize(data) {
-        //Funcion que se ejecuta en primer lugar
+        //Funcion que carga todo el payload de la custom activity en una variable
         if(data) {
             payload = data;
         }       
     }
-
 
     function onClickedNext() {
         if (currentStep.key === 'step2') {
@@ -75,52 +74,46 @@ define(['postmonger'], (Postmonger) => {
         }
     }
 
-
     function onClickedBack() {
         connection.trigger('prevStep');
     }
-
 
     function onGotoStep(step) {
         showStep(step);
         connection.trigger('ready');
     }
 
-
     function onRequestSchema(data) {
-        //Funcion que se ejecuta en segundo lugar
+        //Funcion que permite obtener el esquema de la fuente de datos del Journey.
         //console.log('*** Schema ***', JSON.stringify(data));
         schema = data['schema'];
         schema.forEach(element => {              
-            var valor = extractFieldName(element);
-            $('#idCorp').append($('<option>', {value: valor, text: element.name}));
-            $('#email').append($('<option>', {value: valor, text: element.name}));
-            $('#eventDate').append($('<option>', {value: valor, text: element.name}));
-            $('#batchId').append($('<option>', {value: valor, text: element.name}));
-            $('#jobId').append($('<option>', {value: valor, text: element.name}));
-            $('#accountId').append($('<option>', {value: valor, text: element.name}));
-            $('#packageId').append($('<option>', {value: valor, text: element.name}));
+            var option = {value: "{{" + element.key + "}}", text: element.name};
+            $('#idCorp').append($('<option>', option));
+            $('#email').append($('<option>', option));
+            $('#eventDate').append($('<option>', option));
+            $('#batchId').append($('<option>', option));
+            $('#jobId').append($('<option>', option));
+            $('#accountId').append($('<option>', option));
+            $('#packageId').append($('<option>', option));
         });
 
         var inArgs = payload["arguments"].execute.inArguments;
         for(var i = 0; i < inArgs.length; i++) {
 			var inArg = inArgs[i];
 			var inArgKey = Object.keys(inArg)[0];
-			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey].replace('{{Event.DEAudience-5584a25a-f77b-45fb-7ea4-ea5c8f8b05cf.', '').replace('}}', '')); 
-		}
-        //fillPlaceholderList(schema);    
+			if(document.getElementById(inArgKey)) $('#' + inArgKey).val(inArgs[i][inArgKey]); 
+		} 
     }
 
-    
     function onRequestEventDefinition(eventDefinition) {
         eventDefinitionKey = eventDefinition.eventDefinitionKey;
     }
 
-    //Function for finish process and save set up
+    //Function for finish process and save Set Up
     function save() {
-        //Armar el JSON
         configureInArguments();
-        console.log("ON SAVE: " + JSON.stringify(payload));
+        //console.log("ON SAVE: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 
@@ -146,28 +139,20 @@ define(['postmonger'], (Postmonger) => {
     }
 
 
-
-    function extractFieldName(field) {
-        var index = field.key.lastIndexOf('.');
-        return field.key.substring(index + 1);
-    }
-
     function isEventDataSourceField(field) {
         return !field.key.startsWith('Interaction.');
     }
 
     function saveFieldToInArguments(fieldKey, fieldName, inArguments) {
         var obj = {};
-        obj[fieldName] = "{{Event.DEAudience-5584a25a-f77b-45fb-7ea4-ea5c8f8b05cf." + fieldKey + "}}";
+        obj[fieldName] = fieldKey;
         inArguments.push(obj);
     }
 
 
     function showStep(step) {
         currentStep = step;
-
         $('.step').hide();
-
         if (step == null) {
             $('#step1').show();
             connection.trigger('updateButton', {
@@ -182,7 +167,6 @@ define(['postmonger'], (Postmonger) => {
         }
 
         switch(step.key) {
-
             case 'step1':
             $('#step1').show();
             connection.trigger('updateButton', {
