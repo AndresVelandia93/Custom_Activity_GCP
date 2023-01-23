@@ -193,7 +193,6 @@ define(['postmonger'], (Postmonger) => {
             });
             break;    
         }
-        
     }
 });
 
