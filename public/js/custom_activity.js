@@ -84,7 +84,7 @@ define(['postmonger'], (Postmonger) => {
     }
 
     function onRequestSchema(data) {
-        //Funcion que permite obtener el esquema de la fuente de datos del Journey.
+        //Funcion que permite obtener el esquema de la fuente de datos del Journey
         //console.log('*** Schema ***', JSON.stringify(data));
         schema = data['schema'];
         schema.forEach(element => {              
