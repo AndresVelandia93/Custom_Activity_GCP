@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const path = require('path');
-const JWT = require(path.join(__dirname, 'lib', 'jwt.js'));
+const decodeJwt = require('lib/jwt');
 const Pkg = require(path.join(__dirname, '../', 'package.json'));
 
 const app = express();
@@ -21,37 +21,43 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 
-//All logic for save endpoint
-app.post('/save', function (req, res) {
-  res.status(200);
-  res.send({
-    route: 'save'
-  });
+app.post('/save', (req, res) => {
+  console.log('Save route');
+  const decoded = decodeJwt(req.body.toString('utf8'), secret);
+  console.log('Decoded JWT:', decoded);
+  res.status(200).send('Save');
 });
 
-
-//All logic for publis endpoint
-app.post('/publish', function (req, res) {
-  res.status(200);
-  res.send({
-    route: 'publish'
-  });
+app.post('/publish', (req, res) => {
+  console.log('Publish route');
+  const decoded = decodeJwt(req.body.toString('utf8'), secret);
+  console.log('Decoded JWT:', decoded);
+  res.status(200).send('Publish');
 });
 
+app.post('/validate', (req, res) => {
+  console.log('Validate route');
+  const decoded = decodeJwt(req.body.toString('utf8'), secret);
+  console.log('Decoded JWT:', decoded);
+  res.status(200).send('Validate');
+});
 
-//All logic for validate endpoint
-app.post('/validate', function (req, res) {
-  res.status(200);
-  res.send({
-    route: 'validate'
-  });
+app.post('/stop', (req, res) => {
+  console.log('Stop route');
+  const decoded = decodeJwt(req.body.toString('utf8'), secret);
+  console.log('Decoded JWT:', decoded);
+  res.status(200).send('Stop');
 });
 
 
 //All logic for execute endpoint and JWT decoding
 app.post('/execute', function (req, res) {
+  console.log('Execute route');
+  const decoded = decodeJwt(req.body.toString('utf8'), secret);
+  console.log('Decoded JWT:', decoded);
 
-  JWT(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
+
+  /*JWT(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
     if (err) {
       console.log("ERR: " + err);
       return res.status(401).end();
@@ -65,7 +71,7 @@ app.post('/execute', function (req, res) {
       console.error('inArguments invalid.');
       return res.status(400).end();
     }
-  });
+  });*/
 });
 
 //This function create Json for Web Service

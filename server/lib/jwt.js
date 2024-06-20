@@ -1,11 +1,14 @@
-'use strict';
+const jwt = require('jsonwebtoken');
 
-module.exports = (body, secret, cb) => {
-	if (!body) {
-		return cb(new Error('invalid jwtdata'));
-	}
+function decodeJwt(token, secret) {
+  try {
+    console.log('Decodificacion JWT')
+    return jwt.verify(token, secret, { algorithms: ['HS256'] }); // specify the algorithm
 
-	require('jsonwebtoken').verify(body.toString('utf8'), secret, {
-		algorithm: 'HS256'
-	}, cb);
-};
+  } catch (err) {
+    console.error('Failed to decode JWT:', err);
+    return null;
+  }
+}
+
+module.exports = decodeJwt;
