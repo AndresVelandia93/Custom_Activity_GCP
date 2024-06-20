@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const path = require('path');
-const decodeJwt = require('lib/jwt');
+const decodeJwt = require(path.join(__dirname, './lib/', 'jwt.js'));
 const Pkg = require(path.join(__dirname, '../', 'package.json'));
 
 const app = express();
@@ -12,9 +12,7 @@ app.set('port', process.env.PORT || 3000);
 
 
 // Register middleware that parses the request payload.
-app.use(bodyParser.raw({
-  type: 'application/jwt'
-}));
+app.use(bodyParser.raw({ type: 'application/jwt' }));
 
 app.use(express.json());
 
