@@ -1,0 +1,28 @@
+{
+  "name": "customactivitytemplate",
+  "version": "1.0.0",
+  "description": "This is a template for custom activity with front and backend ",
+  "main": ".server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Velandia",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-simple": "^0.5.6",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "options": {
+    "salesforce": {
+      "marketingCloud": {
+        "jwtSecret": "2022FalabellaCust0m*"
+      }
+    }
+  }
+}

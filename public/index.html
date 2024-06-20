@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Custom activity template</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.8.3/styles/salesforce-lightning-design-system.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" href="./img/GCP_Image.png" sizes="32x32">
+    <script data-main="js/main" src="js/require.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid step" id="step1">
+        <div id="warning" class="" style="display: none;">
+            Existe un Error
+        </div>
+        <div id="main-form" class="" style="display: block;"></div>
+            <p><small id="version"></small></p>
+            <h1>Registro de Clientes GCP</h1>
+            <p>Esta actividad crea registros en GCP</p>
+            
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="id_corp">ID Corporativo</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="idCorp" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="email">Email</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="email" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="event_date">Event Date</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="eventDate" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="batchid">Batch Id</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="batchId" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="jobid">Job Id</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="jobId" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="accountid">Account Id</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="accountId" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="slds-form-element slds-m-bottom_small">
+                <label class="slds-form-element__label" for="packageid">Package Id</label>
+                <div class="slds-form-element__control">
+                  <div class="slds-select_container">
+                    <select id="packageId" class="slds-select">
+                        <option disabled selected>Seleccione una opción</option>
+                    </select>
+                  </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="container-fluid step" id="step2">
+        <p><small id="version"></small></p>
+        <h1>Resumen Configuración</h1>
+    </div>
+</body>
+
+</html>

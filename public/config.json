@@ -1,0 +1,81 @@
+{
+	"workflowApiVersion": "1.1",
+	"metaData": {
+		"icon": "img/GCP_Image.png",
+        "category": "custom",
+        "configOnDrop": true
+	},
+	"type": "REST",
+	"lang": {
+		"es-CO": {
+			"name": "AP GCP",
+			"description": "Actividad Personalizada GCP"
+		},
+		"en-US": {
+			"name": "CA GCP",
+			"description": "Custom Activity GCP"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [],
+			"outArguments": [],
+			"url": "https://custom-activity-v4.herokuapp.com/execute",
+			"verb": "POST",
+			"format": "json",
+			"header": "",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "ExternalKey_CA_GCP"
+		}
+	},
+	"configurationArguments": {
+		"applicationExtensionKey": "4bf4470f-e74f-48e8-879c-3c77852246a3",
+		"save": {
+			"url": "https://custom-activity-v4.herokuapp.com/save",
+			"verb": "POST",
+			"format": "json",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "ExternalKey_CA_GCP"		
+		},
+		"publish": {
+			"url": "https://custom-activity-v4.herokuapp.com/publish",
+			"verb": "POST",
+			"format": "json",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "ExternalKey_CA_GCP"
+		},
+		"validate": {
+			"url": "https://custom-activity-v4.herokuapp.com/validate",
+			"verb": "POST",
+			"format": "json",
+			"body": "",
+			"useJwt": true,
+			"customerKey": "ExternalKey_CA_GCP"
+		}
+	},
+	"wizardSteps": [
+        { "label": "Step 1", "key": "step1", "active": true},
+        { "label": "Step 2", "key": "step2", "active": true}
+	],
+	"userInterfaces": {
+		"configModal": {
+			"width": 700,
+			"height": 600,
+			"fullscreen": true
+		},
+		 "configInspector": {
+         "size": "medium"
+      }
+	},
+	"schema": {
+		"arguments": {
+			"execute": {
+				"inArguments": [],
+				"outArguments": []
+			}
+		}
+	}
+}
