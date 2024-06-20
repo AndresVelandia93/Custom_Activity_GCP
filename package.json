@@ -21,7 +21,7 @@
   "options": {
     "salesforce": {
       "marketingCloud": {
-        "jwtSecret": "2022FalabellaCust0m*"
+        "jwtSecret": "vPyi67ZNGWufMlnZPx3LD9SaneY7JYLsP_uOch4vfR0DYEc3kKsIYGdZcduJTRopc25k1R8IJbamGt31aDZLpa_09XU4Boxx_i49sQx-qNHsc9XhZGCxxUwSNxd26s_oa7Y9sL7eKPDUfanCWs7bbMljbCWrOP9O2qRYoHQ10_Z4XbySQib3SMihZvIfgy_8JZoZ2y6BUnMjNHklwtHRK3GWa5monQdB14rOaKxh157r-lX3TXtu4xkXeo4LlQ2"
       }
     }
   }

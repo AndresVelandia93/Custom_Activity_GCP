@@ -20,7 +20,7 @@
 		"execute": {
 			"inArguments": [],
 			"outArguments": [],
-			"url": "https://custom-activity-v4.herokuapp.com/execute",
+			"url": "https://custom-activity-gcp.onrender.com/execute",
 			"verb": "POST",
 			"format": "json",
 			"header": "",
@@ -30,9 +30,9 @@
 		}
 	},
 	"configurationArguments": {
-		"applicationExtensionKey": "4bf4470f-e74f-48e8-879c-3c77852246a3",
+		"applicationExtensionKey": "e9739a78-ba8f-4d1a-a747-76a57f132a82",
 		"save": {
-			"url": "https://custom-activity-v4.herokuapp.com/save",
+			"url": "https://custom-activity-gcp.onrender.com/save",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
@@ -40,7 +40,7 @@
 			"customerKey": "ExternalKey_CA_GCP"		
 		},
 		"publish": {
-			"url": "https://custom-activity-v4.herokuapp.com/publish",
+			"url": "https://custom-activity-gcp.onrender.com/publish",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
@@ -48,7 +48,7 @@
 			"customerKey": "ExternalKey_CA_GCP"
 		},
 		"validate": {
-			"url": "https://custom-activity-v4.herokuapp.com/validate",
+			"url": "https://custom-activity-gcp.onrender.com/validate",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
