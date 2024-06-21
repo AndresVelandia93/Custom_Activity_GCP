@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const path = require('path');
-const decodeJwt = require(path.join(__dirname, './lib/', 'jwt.js'));
+const decodeJwt = require('./JwtDecoder');
 const Pkg = require(path.join(__dirname, '../', 'package.json'));
+const secret = 'GvblUlBPtysgVUp4eRZb2Vbujm9TlsusexKSvZixpWuPXP4kel0DyXQnr53nPEj0z9qKyktzW-a6zwHrXqEVxro-79UXuteQKAcXaG570xCPW4FAg8irkbth-MBnhDtkuQP8YM0A8sNNImjci67YJrsdJvr8zOwNBvGhyC8YnV7k1lBPtLF7UWpj7BcNQCo-pJJ7T0ubLDGbve5WwKSlmNOOQhXp3EIYyO0HuVXXmLMyaYNKnGr1Dw7taU3Mtw2';
+
 
 const app = express();
 

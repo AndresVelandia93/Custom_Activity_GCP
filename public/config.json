@@ -25,35 +25,31 @@
 			"format": "json",
 			"header": "",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "ExternalKey_CA_GCP"
+			"useJwt": true
 		}
 	},
 	"configurationArguments": {
-		"applicationExtensionKey": "e9739a78-ba8f-4d1a-a747-76a57f132a82",
+		"applicationExtensionKey": "ee8904be-b7b9-49e2-ad68-7758d45b01ce",
 		"save": {
 			"url": "https://custom-activity-gcp.onrender.com/save",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "ExternalKey_CA_GCP"		
+			"useJwt": true	
 		},
 		"publish": {
 			"url": "https://custom-activity-gcp.onrender.com/publish",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "ExternalKey_CA_GCP"
+			"useJwt": true
 		},
 		"validate": {
 			"url": "https://custom-activity-gcp.onrender.com/validate",
 			"verb": "POST",
 			"format": "json",
 			"body": "",
-			"useJwt": true,
-			"customerKey": "ExternalKey_CA_GCP"
+			"useJwt": true
 		}
 	},
 	"wizardSteps": [

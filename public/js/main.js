@@ -1,5 +1,4 @@
-  
-requirejs.config({
+  requirejs.config({
 	paths: {
 		postmonger: 'postmonger'
 	},
