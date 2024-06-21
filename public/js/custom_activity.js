@@ -113,7 +113,7 @@ define(['postmonger'], (Postmonger) => {
     //Function for finish process and save Set Up
     function save() {
         configureInArguments();
-        //console.log("ON SAVE: " + JSON.stringify(payload));
+        console.log("ON SAVE: " + JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 
